@@ -6,7 +6,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { PhaserInstanceModule } from './phaser-instance/phaser-instance.module';
+import { PhaserInstanceModule } from '@app-shared/phaser-instance/phaser-instance.module';
 
 @NgModule({
   declarations: [AppComponent],

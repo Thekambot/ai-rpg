@@ -1,0 +1,28 @@
+<ion-split-pane [contentId]="contentId">
+
+  <ion-menu [contentId]="contentId" side="end" type="overlay">
+
+    <ion-header>
+      <ion-toolbar>
+        <ion-segment value="all" scrollable="true">
+          <ng-template ngFor let-tab [ngForOf]='sideMenuTabs'>
+            <ion-segment-button [value]='tab.title' [routerLink]='tab.url' [routerLinkActive]="'segment-button-checked segment-activated'" >
+              <ion-icon [name]='tab.icon'></ion-icon>
+            </ion-segment-button>
+          </ng-template>
+
+        </ion-segment>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <ion-router-outlet></ion-router-outlet>
+    </ion-content>
+
+  </ion-menu>
+
+  <ion-content [id]="contentId" fullscreen='true'>
+    <app-map-window></app-map-window>
+  </ion-content>
+
+</ion-split-pane>

@@ -7,10 +7,7 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import * as Phaser from 'phaser';
-import ScaleModes = Phaser.Scale.ScaleModes;
-import Center = Phaser.Scale.Center;
-import { environment } from '../../environments/environment';
-import { MainScene } from './scenes/MainScene';
+import { environment } from '@env/environment';
 
 @NgModule({
   declarations: [],
@@ -43,27 +40,7 @@ export class PhaserInstanceModule {
   public static async init(): Promise<void> {
     this.ngZone.runOutsideAngular(() => {
       if (!this.activeGame) {
-        this.activeGame = new Phaser.Game({
-          type: Phaser.AUTO,
-          scale: {
-            mode: ScaleModes.RESIZE,
-            width: window.innerWidth,
-            autoCenter: Center.CENTER_BOTH,
-            height: window.innerHeight,
-          },
-          parent: environment.gameContainerID,
-          scene: [MainScene],
-          plugins: {
-            global: [],
-            scene: [],
-          },
-          fps: {
-            forceSetTimeOut: true,
-          },
-          render: {
-            transparent: false,
-          },
-        });
+        this.activeGame = new Phaser.Game(environment.phaserConfig);
       }
     });
   }
