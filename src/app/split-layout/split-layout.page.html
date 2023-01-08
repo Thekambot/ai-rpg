@@ -1,12 +1,14 @@
-<ion-split-pane [contentId]="contentId">
+<ion-split-pane [contentId]="contentId" when='sm'>
 
   <ion-menu [contentId]="contentId" side="end" type="overlay">
 
     <ion-header>
       <ion-toolbar>
         <ion-segment value="all" scrollable="true">
+
           <ng-template ngFor let-tab [ngForOf]='sideMenuTabs'>
-            <ion-segment-button [value]='tab.title' [routerLink]='tab.url' [routerLinkActive]="'segment-button-checked segment-activated'" >
+            <ion-segment-button [value]='tab.title' [routerLink]='tab.url'
+                                [routerLinkActive]="'segment-button-checked segment-activated'" >
               <ion-icon [name]='tab.icon'></ion-icon>
             </ion-segment-button>
           </ng-template>
